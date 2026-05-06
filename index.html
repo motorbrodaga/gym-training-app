@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f8faf7" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Тренировки" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>Зал: A/B/C</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="todayLabel">Сегодня</p>
+          <h1 id="screenTitle">Тренировка дня</h1>
+        </div>
+        <button class="icon-button" id="installHintButton" type="button" aria-label="Информация">i</button>
+      </header>
+
+      <main>
+        <section class="view active" id="todayView" aria-labelledby="todayTab">
+          <div class="status-panel">
+            <div>
+              <p class="muted">План недели</p>
+              <strong>Пн A · Ср B · Пт C</strong>
+            </div>
+            <div class="status-pill" id="nextWorkoutPill">Ближайшая</div>
+          </div>
+
+          <div class="workout-switch" role="tablist" aria-label="Выбор тренировки">
+            <button type="button" class="chip active" data-workout="A">A</button>
+            <button type="button" class="chip" data-workout="B">B</button>
+            <button type="button" class="chip" data-workout="C">C</button>
+          </div>
+
+          <section class="workout-card">
+            <div class="workout-heading">
+              <div>
+                <p class="muted" id="workoutDay">Понедельник</p>
+                <h2 id="workoutName">Тренировка A</h2>
+              </div>
+              <span id="durationBadge">60-80 мин</span>
+            </div>
+            <p class="safety-note" id="safetyNote"></p>
+          </section>
+
+          <form id="sessionForm" class="exercise-list">
+            <div id="exerciseList"></div>
+
+            <section class="finish-panel">
+              <label>
+                Самочувствие
+                <select id="sessionFeeling">
+                  <option value="easy">Легко, запас был</option>
+                  <option value="normal" selected>Нормально</option>
+                  <option value="hard">Тяжело, но без боли</option>
+                  <option value="failed">Не удалось выполнить план</option>
+                </select>
+              </label>
+
+              <label>
+                Боль или дискомфорт
+                <select id="painLevel">
+                  <option value="none" selected>Нет</option>
+                  <option value="mild">Легкий дискомфорт</option>
+                  <option value="pain">Боль, нужна осторожность</option>
+                </select>
+              </label>
+
+              <div class="failure-box hidden" id="failureBox">
+                <p>Что помешало тренировке?</p>
+                <div class="reason-grid" id="failureReasons"></div>
+                <label>
+                  Комментарий
+                  <textarea id="sessionNote" rows="3" placeholder="Например: мало сна, поясница устала, не хватило времени"></textarea>
+                </label>
+              </div>
+
+              <button class="primary-button" type="submit">Сохранить тренировку</button>
+              <p class="form-message" id="formMessage" role="status"></p>
+            </section>
+          </form>
+        </section>
+
+        <section class="view" id="historyView" aria-labelledby="historyTab">
+          <div class="section-title">
+            <h2>История</h2>
+            <div class="action-row">
+              <button class="ghost-button" id="exportCsvButton" type="button">CSV</button>
+              <button class="ghost-button" id="clearHistoryButton" type="button">Очистить</button>
+            </div>
+          </div>
+          <div id="historyList" class="history-list"></div>
+        </section>
+
+        <section class="view" id="progressView" aria-labelledby="progressTab">
+          <div class="section-title">
+            <h2>Прогресс</h2>
+            <select id="progressExerciseSelect" aria-label="Упражнение для графика"></select>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="progressChart" width="640" height="360"></canvas>
+          </div>
+          <div id="progressSummary" class="recommendation"></div>
+        </section>
+
+        <section class="view" id="planView" aria-labelledby="planTab">
+          <div class="section-title">
+            <h2>План</h2>
+          </div>
+          <div id="planList" class="plan-list"></div>
+          <div class="recommendation">
+            <strong>Логика прогрессии</strong>
+            <p>
+              Вес повышается только после легкой тренировки без боли. Если тренировка не удалась,
+              приложение фиксирует причину и не снижает нагрузку автоматически.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Главная навигация">
+        <button class="nav-item active" id="todayTab" data-view="todayView" type="button">Сегодня</button>
+        <button class="nav-item" id="historyTab" data-view="historyView" type="button">История</button>
+        <button class="nav-item" id="progressTab" data-view="progressView" type="button">График</button>
+        <button class="nav-item" id="planTab" data-view="planView" type="button">План</button>
+      </nav>
+    </div>
+
+    <dialog id="infoDialog">
+      <h2>Локальное приложение</h2>
+      <p>
+        Данные сохраняются в базе браузера на этом устройстве. Для надежности иногда выгружай историю в CSV.
+      </p>
+      <button class="primary-button" id="closeInfoButton" type="button">Понятно</button>
+    </dialog>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
