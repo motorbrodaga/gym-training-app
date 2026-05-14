@@ -121,6 +121,14 @@ h3 {
   padding: 14px;
 }
 
+.schedule-note {
+  margin: 6px 0 0;
+  color: var(--accent-strong);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .status-pill,
 #durationBadge {
   flex: 0 0 auto;

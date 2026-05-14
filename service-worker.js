@@ -1,4 +1,4 @@
-const CACHE_NAME = "gym-training-app-v2-health-safe";
+const CACHE_NAME = "gym-training-app-v3-daily-bench";
 const APP_SHELL = [
   "./",
   "./index.html",
