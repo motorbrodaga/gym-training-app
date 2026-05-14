@@ -209,12 +209,14 @@ function renderPlan() {
 }
 
 function renderProgressOptions() {
-  const exercises = Object.values(workouts).flatMap((workout) => workout.exercises);
+  const exercises = Object.values(workouts)
+    .flatMap((workout) => workout.exercises)
+    .filter((exercise, index, all) => all.findIndex((item) => item.id === exercise.id) === index);
   $("#progressExerciseSelect").innerHTML = exercises.map((exercise) => `<option value="${exercise.id}">${exercise.name}</option>`).join("");
 }
 
 function renderProgress() {
-  const id = $("#progressExerciseSelect").value || "bench_barbell";
+  const id = $("#progressExerciseSelect").value || "bench_barbell_daily";
   const exercise = exerciseById(id);
   const points = sessions
     .slice()
