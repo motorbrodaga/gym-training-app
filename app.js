@@ -7,49 +7,49 @@ const workouts = {
     title: "Тренировка A",
     day: "Понедельник",
     focus: "Верх тела: грудь, спина, плечи",
-    note: "Разминка 8-10 минут: эллипс или велотренажер в легком темпе, суставная разминка плеч, 1-2 разминочных подхода в первом упражнении. Работай с запасом 1-2 повтора, без моста через боль.",
+    note: "Разминка 8-10 минут: велотренажер или ходьба, мягкая мобилизация грудного отдела и лопаток. Шея нейтральна, без запрокидывания головы, без задержки дыхания и без тренировки через головокружение.",
     exercises: [
-      { id: "bench_barbell", name: "Жим штанги лежа", weight: 55, sets: 3, reps: "8-10", unit: "кг", step: 2.5, tag: "контроль лопаток" },
-      { id: "lat_pulldown", name: "Тяга вертикального блока", weight: 55, sets: 3, reps: "10", unit: "кг", step: 2.5, tag: "без рывков" },
-      { id: "bench_dumbbell", name: "Жим гантелей лежа", weight: 18, sets: 3, reps: "10-12", unit: "кг", step: 1, tag: "на каждую руку" },
-      { id: "chest_supported_row", name: "Тяга с упором грудью", weight: 35, sets: 3, reps: "10-12", unit: "кг", step: 2.5, tag: "поясница отдыхает" },
-      { id: "machine_shoulder_press", name: "Жим плеч в тренажере", weight: 25, sets: 2, reps: "10-12", unit: "кг", step: 2.5, tag: "без прогиба" },
-      { id: "face_pull", name: "Face Pull", weight: 20, sets: 3, reps: "15", unit: "кг", step: 1, tag: "плечи спокойно" },
+      { id: "machine_chest_press", name: "Жим в тренажере сидя", weight: 35, sets: 3, reps: "10-12", unit: "кг", step: 2.5, tag: "голова на опоре", caution: "Замена тяжелого жима штанги: меньше соблазна напрягать шею и делать мост." },
+      { id: "lat_pulldown_neutral", name: "Тяга верхнего блока нейтральным хватом", weight: 45, sets: 3, reps: "10-12", unit: "кг", step: 2.5, tag: "только к груди", caution: "Не тянуть за голову, не вытягивать подбородок вперед, остановиться при онемении руки." },
+      { id: "bench_dumbbell", name: "Жим гантелей лежа", weight: 14, sets: 2, reps: "10-12", unit: "кг", step: 1, tag: "легко, без моста", caution: "Голова лежит спокойно, плечи не поднимать к ушам." },
+      { id: "chest_supported_row", name: "Тяга с упором грудью", weight: 30, sets: 3, reps: "10-12", unit: "кг", step: 2.5, tag: "шея длинная", caution: "Лучше обычных тяг, потому что корпус и поясница разгружены." },
+      { id: "cable_external_rotation", name: "Наружная ротация плеча в блоке", weight: 3, sets: 2, reps: "12-15/рука", unit: "кг", step: 0.5, tag: "локоть у корпуса", caution: "Без боли в плече, движение маленькое и спокойное." },
+      { id: "face_pull", name: "Face Pull", weight: 12, sets: 2, reps: "12-15", unit: "кг", step: 1, tag: "локти ниже плеч", caution: "Легкая техника для лопаток; если зажимает шею, заменить на тягу резинки к груди." },
     ],
   },
   B: {
     title: "Тренировка B",
     day: "Среда",
     focus: "Ноги и кор",
-    note: "Разминка 8-10 минут: велотренажер или эллипс, мобилизация таза и голеностопа, легкие подходы в жиме ногами. Поясница прижата, амплитуда комфортная, без задержки дыхания.",
+    note: "Разминка 8-10 минут: велотренажер или ходьба, мобилизация таза и голеностопа, легкие подходы в жиме ногами. Без задержки дыхания, без натуживания и без упражнений, если есть тошнота или головокружение.",
     exercises: [
-      { id: "leg_press", name: "Жим ногами", weight: 100, sets: 3, reps: "10", unit: "кг", step: 5, tag: "поясница прижата" },
-      { id: "leg_extension", name: "Разгибание ног", weight: 48, sets: 3, reps: "12", unit: "кг", step: 2.5, tag: "плавно" },
-      { id: "leg_curl", name: "Сгибание ног", weight: 42, sets: 3, reps: "12", unit: "кг", step: 2.5, tag: "без рывков" },
-      { id: "seated_calf_raise", name: "Подъемы на икры сидя", weight: 35, sets: 3, reps: "12-15", unit: "кг", step: 2.5, tag: "пауза сверху" },
-      { id: "glute_bridge", name: "Ягодичный мост", weight: 0, sets: 3, reps: "12", unit: "кг", step: 2.5, tag: "без боли в пояснице" },
-      { id: "dead_bug", name: "Dead Bug", weight: 0, sets: 3, reps: "8-10/стор.", unit: "повт.", step: 0, tag: "поясница нейтральна" },
-      { id: "side_plank", name: "Боковая планка", weight: 0, sets: 2, reps: "20-30 сек/стор.", unit: "сек", step: 0, tag: "без скручивания" },
+      { id: "leg_press", name: "Жим ногами", weight: 80, sets: 3, reps: "10-12", unit: "кг", step: 5, tag: "без натуживания", caution: "Не опускать платформу слишком глубоко; поясница и затылок остаются на опоре." },
+      { id: "leg_extension", name: "Разгибание ног", weight: 40, sets: 3, reps: "12", unit: "кг", step: 2.5, tag: "плавно", caution: "Работать без рывка и без задержки дыхания." },
+      { id: "leg_curl", name: "Сгибание ног", weight: 35, sets: 3, reps: "12", unit: "кг", step: 2.5, tag: "без рывков", caution: "Шея расслаблена, корпус не дергать." },
+      { id: "seated_calf_raise", name: "Подъемы на икры сидя", weight: 30, sets: 2, reps: "12-15", unit: "кг", step: 2.5, tag: "пауза сверху", caution: "Не гнаться за весом, дышать ровно." },
+      { id: "glute_bridge", name: "Ягодичный мост", weight: 0, sets: 3, reps: "12", unit: "кг", step: 0, tag: "шея нейтральна", caution: "Без штанги на старте; голова и шея не участвуют в подъеме." },
+      { id: "dead_bug", name: "Dead Bug", weight: 0, sets: 3, reps: "8-10/стор.", unit: "повт.", step: 0, tag: "медленно", caution: "Хорошее упражнение для кора, если не задерживать дыхание." },
+      { id: "side_plank", name: "Боковая планка с колен", weight: 0, sets: 2, reps: "15-25 сек/стор.", unit: "сек", step: 0, tag: "шея ровная", caution: "Версия с колен меньше нагружает шею и поясницу." },
     ],
   },
   C: {
     title: "Тренировка C",
     day: "Пятница",
     focus: "Спина, руки и задняя дельта",
-    note: "Разминка 8-10 минут: легкий тренажер, плечи и лопатки, 1-2 легких подхода тяги. Тяги делай корпусом спокойно, без добивания поясницей.",
+    note: "Разминка 8-10 минут: велотренажер или ходьба, лопатки и грудной отдел. Все тяги только с нейтральной шеей; не запрокидывать голову и не добивать подходы через онемение, прострел или головокружение.",
     exercises: [
-      { id: "seated_row", name: "Тяга горизонтального блока", weight: 59, sets: 3, reps: "10", unit: "кг", step: 2.5, tag: "корпус тихий" },
-      { id: "assisted_pullup", name: "Гравитрон", weight: 45, sets: 3, reps: "6-8", unit: "кг помощи", step: -2.5, tag: "меньше помощи = тяжелее" },
-      { id: "reverse_pec_deck", name: "Обратная бабочка", weight: 25, sets: 3, reps: "12-15", unit: "кг", step: 2.5, tag: "задняя дельта" },
-      { id: "db_curl", name: "Сгибание рук с гантелями", weight: 12, sets: 3, reps: "10", unit: "кг", step: 1, tag: "без раскачки" },
-      { id: "triceps_pushdown", name: "Разгибание рук в блоке", weight: 32, sets: 3, reps: "10", unit: "кг", step: 2.5, tag: "локти спокойно" },
-      { id: "cable_lateral_raise", name: "Отведение руки в блоке в сторону", weight: 5, sets: 2, reps: "12-15/рука", unit: "кг", step: 1, tag: "без рывков" },
-      { id: "bird_dog", name: "Bird Dog", weight: 0, sets: 3, reps: "12", unit: "повт.", step: 0, tag: "стабилизация" },
+      { id: "seated_row", name: "Тяга горизонтального блока", weight: 45, sets: 3, reps: "10-12", unit: "кг", step: 2.5, tag: "корпус тихий", caution: "Не тянуть подбородок вперед, движение от лопаток." },
+      { id: "straight_arm_pulldown", name: "Пуловер в блоке стоя", weight: 18, sets: 2, reps: "12-15", unit: "кг", step: 1, tag: "ребра вниз", caution: "Замена гравитрона: меньше осевой и рывковой нагрузки на шею." },
+      { id: "reverse_pec_deck", name: "Обратная бабочка", weight: 18, sets: 3, reps: "12-15", unit: "кг", step: 2.5, tag: "плечи вниз", caution: "Не поднимать плечи к ушам." },
+      { id: "db_curl", name: "Сгибание рук с гантелями сидя", weight: 8, sets: 2, reps: "10-12", unit: "кг", step: 1, tag: "спина на опоре", caution: "Сидя легче не раскачиваться и не зажимать шею." },
+      { id: "triceps_pushdown", name: "Разгибание рук в блоке", weight: 24, sets: 3, reps: "10-12", unit: "кг", step: 2.5, tag: "лопатки вниз", caution: "Не наклонять голову вперед, локти спокойно." },
+      { id: "cable_lateral_raise", name: "Отведение руки в блоке в сторону", weight: 3, sets: 2, reps: "12-15/рука", unit: "кг", step: 0.5, tag: "до уровня плеча", caution: "Не поднимать выше плеча и не делать через боль." },
+      { id: "bird_dog", name: "Bird Dog", weight: 0, sets: 3, reps: "8-10/стор.", unit: "повт.", step: 0, tag: "взгляд в пол", caution: "Шея продолжает линию спины, без запрокидывания." },
     ],
   },
 };
 
-const failureReasons = ["мало сна", "усталость", "боль или дискомфорт", "не хватило времени", "слишком тяжелый вес", "плохое самочувствие", "другое"];
+const failureReasons = ["мало сна", "усталость", "боль или дискомфорт", "головокружение", "онемение/прострел", "не хватило времени", "слишком тяжелый вес", "плохое самочувствие", "другое"];
 const weekdayMap = { 1: "A", 3: "B", 5: "C" };
 let db;
 let selectedWorkout = getWorkoutForDate(new Date());
@@ -154,14 +154,15 @@ function renderToday() {
     const weight = recommendedWeight(exercise);
     return `
       <article class="exercise-card">
-        <div class="exercise-head">
+        <header>
           <div>
             <h3>${exercise.name}</h3>
-            <p>${exercise.sets} x ${exercise.reps} · ${exercise.tag}</p>
+            <p class="exercise-meta">${exercise.sets} x ${exercise.reps} · ${exercise.tag}</p>
           </div>
-          <span>${weight} ${exercise.unit}</span>
-        </div>
-        <div class="input-grid">
+          <span class="safe-tag">${weight} ${exercise.unit}</span>
+        </header>
+        ${exercise.caution ? `<p class="exercise-caution">${exercise.caution}</p>` : ""}
+        <div class="inputs-grid">
           <label>Вес<input name="${exercise.id}-weight" type="number" inputmode="decimal" step="0.5" value="${weight}" /></label>
           <label>Подходы<input name="${exercise.id}-sets" type="number" inputmode="numeric" value="${exercise.sets}" /></label>
           <label>Повторы<input name="${exercise.id}-reps" type="text" value="${exercise.reps}" /></label>

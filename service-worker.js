@@ -1,4 +1,4 @@
-const CACHE_NAME = "gym-training-app-v1";
+const CACHE_NAME = "gym-training-app-v2-health-safe";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -27,12 +27,10 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   event.respondWith(
-    caches.match(event.request).then((cached) =>
-      cached || fetch(event.request).then((response) => {
+    fetch(event.request).then((response) => {
         const copy = response.clone();
         caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
         return response;
-      })
-    )
+      }).catch(() => caches.match(event.request))
   );
 });
